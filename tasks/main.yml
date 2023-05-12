@@ -1,7 +1,7 @@
 ---
-- name: Install latest version of chrony
+- name: Install latest version of httpd
   ansible.builtin.dnf:
-    name: chrony
+    name: httpd
     state: latest
     update_cache: true
 - name: Update template and copy to destination server
