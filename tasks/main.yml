@@ -12,8 +12,26 @@
     group: root
     mode: 0644
     backup: true
-- name: Restart and enable chrony daemon
+- name: Create base directory
+  ansible.builtin.file:
+    path: '/var/www/{{ httpd_host_fqdn }}'
+    state: directory
+    mode: '0755'
+- name: Create http directory
+  ansible.builtin.file:
+    path: '/var/www/{{ httpd_host_fqdn }}/public_html'
+    state: directory
+    mode: '0755'
+- name: Create log directory
+  ansible.builtin.file:
+    path: '/var/www/{{ httpd_host_fqdn }}/logs'
+    state: directory
+    mode: '0755'
+
+# If Encrypted Copy Key to PKI Directory
+# If Encrypted Copy Pub to PKI Directory
+- name: Restart and enable httpd daemon
   ansible.builtin.service:
-    name: chronyd
+    name: httpd
     state: restarted
     enabled: true

@@ -8,6 +8,6 @@
     ServerAlias {{ httpd_host_alias }}
     {% endif %}
     DocumentRoot /var/www/{{ httpd_host_fqdn }}/public_html
-    ErrorLog /var/www/{{ httpd_host_fqdn }}/logs/error.log
-    CustomLog /var/www/{{ httpd_host_fqdn }}/logs/access.log combined
+    ErrorLog /var/log/httpd/{{ httpd_host_fqdn }}_error.log
+    CustomLog /var/log/httpd/{{ httpd_host_fqdn }}_access.log combined
 </VirtualHost>
