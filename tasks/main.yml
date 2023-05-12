@@ -1,0 +1,19 @@
+---
+- name: Install latest version of chrony
+  ansible.builtin.dnf:
+    name: chrony
+    state: latest
+    update_cache: true
+- name: Update template and copy to destination server
+  ansible.builtin.template:
+    src: templates/chrony.conf.j2
+    dest: /etc/chrony.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: true
+- name: Restart and enable chrony daemon
+  ansible.builtin.service:
+    name: chronyd
+    state: restarted
+    enabled: true
