@@ -1,16 +1,17 @@
-# Ansible Role: Chrony
+# Ansible Role: HTTPd Site
 
-![CI](https://github.com/acavella/ansible-role-chrony/actions/workflows/ci.yml/badge.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/acavella/ansible-role-chrony)
-![GitHub repo size](https://img.shields.io/github/repo-size/acavella/ansible-role-chrony)
+![CI](https://github.com/acavella/ansible-role-httpd-site/actions/workflows/ci.yml/badge.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/acavella/ansible-role-httpd-site)
+![GitHub repo size](https://img.shields.io/github/repo-size/acavella/ansible-role-httpd-site)
 
-An Ansible Role to install and configure the chrony daemon on Linux.
+An Ansible Role to install and configure an HTTPd VirtualHost implementing configuration best practices and STIG settings.
 
 ## Requirements
 
 | Name | Version | Notes |
 | ----- | ----- | ----- |
 | Red Hat Enterprise Linux | 7,8,9 | NA |
+| Apache HTTPd | 2.4.x | NA |
 | Ansible | 2.9+ | NA |
 
 ## Role Variables
@@ -44,7 +45,7 @@ None.
 ```yaml
 - hosts: localhost
   roles:
-    - { role: acavella.chrony }
+    - { role: acavella.httpd-site }
 ```
 ## License
 
