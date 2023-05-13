@@ -22,9 +22,6 @@
     path: '/var/www/{{ httpd_host_fqdn }}/public_html'
     state: directory
     mode: '0755'
-
-# If Encrypted Copy Key to PKI Directory
-# If Encrypted Copy Pub to PKI Directory
 - name: Restart and enable httpd daemon
   ansible.builtin.service:
     name: httpd
