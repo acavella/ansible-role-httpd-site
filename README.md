@@ -19,21 +19,24 @@ An Ansible Role to install and configure an HTTPd VirtualHost implementing confi
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
 ```yaml
-# Specifies an NTP server which can be used as a time source.
-chrony_ntp_servers: []
-# Used to specify a pool of NTP servers rather than a single NTP server.
-chrony_ntp_pools: []
-# Specifies a symmetric association with an NTP peer instead of a client/server association with an NTP server.
-chrony_ntp_peers: 
-  - 192.168.0.11 iburst
-  - 192.168.0.12 iburst
-# Enables a local reference mode, which allows chronyd operating as an NTP server when no real time source is available.
-chrony_is_local: true 
-# Designate a particular subnet from which NTP clients are allowed to access the NTP server.
-chrony_allow_networks:
-  - 192.168.0.0/16
-# Location of the file containing symmetric keys which are shared between NTP servers and clients, or peers.
-chrony_keyfile: /etc/chrony.keys
+# Specifies the fqdn the virtual host responds to queries.
+httpd_host_fqdn: example.com
+# Defines variations of the fqdn that you also want the server to respond to.
+httpd_host_alias: www.example.com
+# Specifies an administrative email address responsible for the server.
+httpd_host_email: admin@example.com
+# Specifies the IP address of the network adaptor to listen.
+httpd_host_ip: 10.25.0.115
+# Specifies the port the host should listen on.
+httpd_host_port: 80
+# Specifies whether the virtual host should be tls encrypted or not.
+httpd_host_encrypted: false
+# Specifies the location of the server certificate, only used when httpd_host_encrypted.
+httpd_host_certificate: 
+# Specifies the location of the server private key, only used when httpd_host_encrypted.
+httpd_host_key: 
+# Specifies the location of trustchain, only used when httpd_host_encrypted.
+httpd_host_chain: 
 ```
 
 ## Dependencies
