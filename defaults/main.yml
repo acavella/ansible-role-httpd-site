@@ -1,7 +1,10 @@
 ---
 httpd_host_fqdn: example.com
 httpd_host_alias: www.example.com
+httpd_host_email: admin@example.com
 httpd_host_ip: 10.25.0.115
 httpd_host_port: 80
 httpd_host_encrypted: true
-httpd_host_email: admin@example.com
+httpd_host_certificate: 
+httpd_host_key: 
+httpd_host_chain: 
