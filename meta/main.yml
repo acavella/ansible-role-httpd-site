@@ -1,10 +1,9 @@
 ---
 dependencies: []
 galaxy_info:
-  role_name: chrony
+  role_name: httpd_site
   author: acavella
-  description: Chrony daemon installation and configure for Linux.
-  company: "altCipher"
+  description: Automates install of a STIG compliant Apache Virtual Host.
   license: "license (GPLv3)"
   min_ansible_version: "2.9"
   platforms:
@@ -14,6 +13,7 @@ galaxy_info:
         - "8"
         - "9"
   galaxy_tags:
-    - chrony
-    - timesync
-    - ntp
+    - httpd
+    - virtualhost
+    - apache
+    - stig
