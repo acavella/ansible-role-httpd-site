@@ -6,11 +6,11 @@
     update_cache: true
 - name: Update template and copy to destination server
   ansible.builtin.template:
-    src: templates/chrony.conf.j2
-    dest: /etc/chrony.conf
+    src: templates/host.j2
+    dest: '/etc/httpd/conf.d/{{ http_host_fqdn }}.conf'
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
     backup: true
 - name: Create base directory
   ansible.builtin.file:
