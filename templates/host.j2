@@ -8,12 +8,19 @@
     ServerAlias {{ httpd_host_alias }}
     {% endif %}
     DocumentRoot /var/www/{{ httpd_host_fqdn }}/public_html
+
+    # Nessus Plugin ID 11213
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+    RewriteRule .* - [F]
+
     {% if httpd_host_encrypted %}
     SSLEngine on
     SSLCertificateFile {{ httpd_host_cert }}
     SSLCertificateKeyFile {{ httpd_host_key }}
     SSLCertificateChainFile {{ httpd_host_chain }}
     {% endif %}
+    
     ErrorLog /var/log/httpd/{{ httpd_host_fqdn }}_error.log
     CustomLog /var/log/httpd/{{ httpd_host_fqdn }}_access.log combined
 </VirtualHost>
